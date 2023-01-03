@@ -1,0 +1,22 @@
+let mailTransporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'goodluckhart340.com',
+        pass: 'mhebhgdrisoonlvl'
+    }
+});
+    
+let mailDetails = {
+    from: 'goodluckhart340.com',
+    to: 'user.email',
+    subject: 'Verification code',
+    text: 'Node.js testing mail for GeeksforGeeks'
+};
+    
+mailTransporter.sendMail(mailDetails, function(err, data) {
+    if(err) {
+        console.log('Error Occurs');
+    } else {
+        console.log('Email sent successfully');
+    }
+});

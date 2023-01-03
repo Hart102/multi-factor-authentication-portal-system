@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROWESS HUB TECH</title>
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+<body>
+    <!-- <section class="h-screen bg-[url('/img/bg.jpg')] bg-center bg-cover"> -->
+
+    <section class="flex w-full">
+
+        <!-- Cover page  -->
+        <section class="h-screen w-full p-5 bg-lightAsh">
+            <nav class="container mx-auto flex justify-between">
+                <p class="text-1xl font-bold">PROWESS HUB TECH</p>
+                <menu class="space-x-6 hidden md:block">
+                    <a href="#" class="rounded-full text-sm hover:text-blue">About the project</a>
+                    <a href="#" class="rounded-full text-sm hover:text-blue">Software requirement</a>
+                    <a href="#" class="rounded-full text-sm hover:text-blue hover:text-white">System requirement</a>
+                    <a href="#" class="border rounded-full text-sm p-2 hover:bg-blue hover:text-white">Project limitation</a>
+                </menu>
+
+                <i class="fa fa-bars fa-2x md:hidden" onclick="hamburger()"></i>
+
+                <!-- Mobile menu  -->
+                <div class="mobile-menu container bg-lightAsh mx-auto flex flex-col space-y-12 absolute left-0 top-[10%] h-full z-[50] p-5 sm:hidden md:hidden">
+                    <a href="#" class="rounded-full hover:text-blue font-bold">About the project</a>
+                    <a href="#" class="rounded-full hover:text-blue font-bold">Software requirement</a>
+                    <a href="#" class="rounded-full hover:text-blue font-bold">System requirement</a>
+                    <a href="#" class="rounded-full hover:text-blue font-bold">Project limitation</a>
+                </div>
+            </nav>
+
+
+    
+            <div class="container relative mx-auto flex align-center justify-center text-center h-full overflow-hidden">
+                <div class="absolute top-[30%]" id="pages">
+                    <!-- <div class="w-[8rem] h-[8rem] relative mx-auto mb-5">
+                        <img src="./img/myphoto.jpg" class="absolute w-full h-full rounded-full">
+                    </div> -->
+                    <p class="text-4xl font-bold mx-auto md:text-5xl">WELCOME TO PROWESS HUB TECH</p>
+                </div>
+
+                <div class="bg-lightAsh mx-auto flex align-center justify-between absolute top-[15%] -right-[70rem]" id="pages">
+                    <div class="flex flex-col justify-center space-y-10 md:1/2 md:text-left">
+                        <div>
+                            <h1 class='max-w-md text-5xl font-bold text-center mb-5 md:text-left'>multi factor authentication</h1>
+                            <p class="max-w-md text-center text-3xl md:text-left md:text-base">multi factor authentication portal system using one time password (OTP)</p>
+                        </div>
+                        <div class="space-x-12 flex justify-center md:justify-start">
+                            <button class="bg-blue py-3 px-10 text-white font-bold rounded-full" onclick="displaySignUp()">Sign up</button>
+                            <button class="bg-blue py-3 px-10 text-white font-bold rounded-full ml-5" onclick="displayLogin()">Sign in</button>
+                        </div>
+                    </div>
+        
+                    <div class="hidden w-full flex-col justify-center md:w-1/3 md:flex">
+                        <div class="relative w-1/1 bg-red-500">
+                            <img src="../img/b2.png" class="md:1/2 h-full top-7">
+                        </div>
+                    </div>
+
+                </div>
+                
+                <section class="flex space-x-12 absolute bottom-5">
+                    <i class="fa fa-angle-left fa-2x bg-white py-2 px-4 font-bold text-3xl shadow-xl cursor-pointer border hover:bg-blue hover:text-white" onclick="previous()"></i>
+                    <i class="fa fa-angle-right fa-2x bg-white py-2 px-4 font-bold text-3xl shadow-xl cursor-pointer border hover:bg-blue hover:text-white" onclick="nextBtn()"></i>
+                </section>
+
+            </div>
+        </section>
+    
+        <!--------------- Pop up ------------- -->
+        <section class="popUp hidden bg-black-rgba absolute top-0 h-screen w-full flex flex-col justify-center p-6">
+            <div class="container mx-auto flex justify-center align-center h-96 bg-white relative overflow-hidden p-5 w-1/1 md:w-1/3">
+                <p class="cursor-pointer absolute right-4 font-bold z-[50]" onclick="closePopUp()">x</p>
+    
+                <form class="sign-up flex flex-col space-y-3 w-full h-96 p-6 text-center bg-transparent absolute top-7 overflow-y-hidden">
+                    <h1 class="text-2xl font-bold">Sign up</h1>
+                    <input type="text" name="phone" class="px-3 py-3 border bg-transparent" placeholder="phone" id="phone">
+                    <input type="text" class="px-3 py-3 border bg-transparent " placeholder="Email">
+                    <input type="password" class="px-3 py-4 border bg-transparent " placeholder="Password">
+                    <div class="bg-blue text-white py-4 font-bold hover:bg-lightBlue" onClick="validate()">Sign up</div>
+                    <p class="cursor-pointer signUpBtn" onclick="displayLogin()">Already have an account ?</p>
+                </form>
+    
+                <form class="login flex flex-col space-y-5 w-full bg-white p-6 text-center bg-transparent absolute -right-[100%]  top-10 ">
+                    <h1 class="text-2xl font-bold">Login up</h1>
+                    <input type="text" class="px-3 py-4 border bg-transparent my-4" placeholder="phone">
+                    <button class="bg-blue text-white py-4 font-bold hover:bg-lightBlue">Login</button>
+                    <p class="cursor-pointer signInBtn" onclick="displaySignUp()">Don't have an account ?</p>
+                </form>
+            </div>
+        </section>
+    </section>
+
+
+    <script>
+        const elementSelector = element => document.querySelector(element)
+        const popUp = elementSelector('.popUp')
+        const closingTab = elementSelector('.closing-tab')
+        const signUp = elementSelector('.sign-up')
+        const login = elementSelector('.login')
+
+        const mobileMenu = elementSelector('.mobile-menu')
+
+        // Pages 
+        const pages = document.querySelectorAll('#pages')
+
+
+        //--------- Hamburger menu function ---------
+        const hamburger = () => {
+            mobileMenu.classList.toggle('sm:hidden')
+            elementSelector('.fa-bars').classList.toggle('fa-times')
+        }
+
+        //------------- Display login form -------------
+        const displayLogin = () => {
+            popUp.classList.remove('hidden')
+            signUp.setAttribute('class', 'sign-up flex flex-col space-y-3 w-full p-6 text-center bg-transparent absolute top-7 -left-[100%]')
+            login.setAttribute('class', 'login flex flex-col space-y-3 w-full bg-white p-6 text-center bg-transparent absolute -right-[100%]  top-10 -right-[0%]')
+
+            signUp.style.transition = '0.3s'
+            login.style.transition = '0.3s'
+        }
+        
+        //------------- Display sign up form -------------
+        const displaySignUp = () => {
+            login.classList.add('right-[-100%]')
+            signUp.classList.add('-left-[0%]')
+            
+            signUp.style.transition = '0.3s'
+            login.style.transition = '0.3s'
+            popUp.classList.remove('hidden')
+        }
+
+        //----------- Close pop up -----------
+        const closePopUp = () => {
+            popUp.classList.add('hidden')
+        }
+
+
+        // Pigination 
+        let currentPage = ''
+        const pageContainer = []
+
+        //--------- Naxt page functionality ---------
+        const nextBtn = () => {
+            pages.forEach((page, indx) => pageContainer.push(page))
+                        
+            pageContainer[0].setAttribute('class', 'absolute top-[30%] -left-[100%] bg-lightAsh')
+            
+            pageContainer[1].style.transition = '0.3s'
+            pageContainer[1].setAttribute('class', 'mx-auto flex align-center justify-between absolute top-[15%] -right-[0rem] bg-lightAsh')
+        }
+        
+        //------- Previous page functionality -------
+        const previous = () => {
+            pageContainer[0].classList.remove('-left-[100%]')
+            pageContainer[1].setAttribute('class', 'bg-lightAsh mx-auto flex align-center justify-between absolute top-[15%] -right-[70rem]')
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //---------- Form validation ----------
+        const validationForm = (inputField) => {
+            if (inputField.value == '') {
+                return (`${inputField.name} cannot be empty`)
+
+            }else{
+                return (inputField.value)
+            }
+        }
+
+        const validate = () => {
+            // validationForm(elementSelector('#username'))
+        }
+
+    </script>
+</body>
+</html>
+
+
+<!-- background: url('') -->
