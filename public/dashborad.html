@@ -8,21 +8,116 @@
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
     <!-- <link rel="stylesheet" href="./css/main.css"> -->
     <link rel="stylesheet" href="./css/style.css">
-    <!-- <link rel="stylesheet" href="./css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
-<body style="background: #f5f5f5">
-    <!-- <header>
-        <nav class="container d-flex justify-content-between">
-            <span>PROWESS HUB TECH</span>
-            <ul class="list-unstyled">
+<style>
+    :root{
+        --Purple: #b576f8;
+        --Blue: #6a90e3;
+        --Orange: #ffa289;
+    }
 
-            </ul>
+    .overviewbox{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+        gap: 40px;
+    }
+    .overviewbox .box{
+        border-radius: 5px;
+    }
+    tbody tr:nth-child(even){
+        background: #f5f5f5;
+    }
+</style>
+<body style="background: #f5f5f5">
+    <header class="bg-white">
+        <nav class="container d-flex justify-content-between align-items-center p-2">
+            <b>PROWESS TECH HUB</b>
+            <form class="col-5">
+                <input type="text" class="form-control px-3" placeholder="Search...">
+            </form>
+            <span class="d-flex">
+                <i class="fa fa-bell mx-2"></i>
+                <i class="fa fa-bars mx-2"></i>
+            </span>
         </nav>
     </header>
-     -->
 
-    <img src="./img/admin-dashboard.jpg" alt="">
+    <div class="container py-5">
+        <span class="d-flex">
+            <i class="fa fa-cloud"></i>
+            <div class="h6 mx-2">Dashboard</div>
+        </span>
+        <section class="overviewbox py-3">
+            <div class="box p-5 bg-white shadow-sm">
+                <h1>500</h1>
+                <b>Total Lecturers</b>
+            </div>
+            <div class="box p-5 bg-white shadow-sm">
+                <h1>80</h1>
+                <b>Total Students</b>
+            </div>
+            <div class="box p-5 bg-white shadow-sm">
+                <h1>200</h1>
+                <b>Cuasual worker</b>
+            </div>
+        </section>
+        <section class="bg-white d-flex justify-content-center p-5 shadow-sm">
+            <table class="table1 col-md-12 p-4">
+                <thead>
+                    <tr class="col-md-12 border-bottom">
+                        <th class="p-3">Name</th>
+                        <th class="p-3">Email</th>
+                        <th class="p-3">Position</th>
+                        <th class="p-3">Joined</th>
+                        <th class="text-right p-3">appointment</th>
+                    </tr>
+                </thead>
+
+                <tbody></tbody>
+            </table>
+        </section>
+    </div>
+
+    <!-- <img src="./img/admin-dashboard.jpg" alt=""> -->
+    <script>
+        const users = [
+            {
+                name: 'Dr. Okpoko',
+                email: 'Okpoko@mail.com',
+                position: 'Dr.',
+                year: '1995',
+                appoinment: 'Full-time'
+            },
+            {
+                name: 'Prof Nmadu',
+                email: 'ProfNmadu@mail.com',
+                position: 'Professor',
+                year: '1922',
+                appoinment: 'Part-time'
+            },
+            {
+                name: 'Calistus',
+                email: 'calistus@mail.com',
+                position: 'Junior lecturer',
+                year: '2020',
+                appoinment: 'Full-time'
+            }
+        ]
+        
+        users.map(user => {
+            document.querySelector('tbody').innerHTML += `
+                <tr>
+                    <td class="p-3">${user.name}</td>
+                    <td class="p-3">${user.email}</td>
+                    <td class="p-3">${user.position}</td>
+                    <td class="p-3">${user.year}</td>
+                    <td class="text-right p-3">${user.appoinment}</td>
+                </tr>
+            `
+        })
+    </script>
     
 </body>
 </html>

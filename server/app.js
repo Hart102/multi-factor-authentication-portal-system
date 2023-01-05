@@ -100,7 +100,6 @@ app.post('/', (req, res) => {
 //------- Login route -------
 app.post('/login', (req, res) => {
     const { error, value } = authLogin.validate(req.body)
-
     if (error) {
         res.json(error.message)
 

@@ -12,6 +12,7 @@ $(document).ready(() => {
     //--- Sign up function ---
     $('.sign-up').submit(e => {
         e.preventDefault()
+
         $.ajax({
             url: '/',
             type: 'post',
@@ -60,7 +61,6 @@ $(document).ready(() => {
                 errMsg.html(response)
             }
         })
-
     })
 
     // Clear errorMsg while typing 
